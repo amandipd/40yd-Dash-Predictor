@@ -2,12 +2,6 @@ import pandas as pd
 import numpy as np
 from sklearn import datasets
 
-def normalize_cols(df, colName):
-    mean = df[colName].mean()
-    std_dev = df[colName].std()
-
-
-
 def clean_data(df):  
     dropped_columns = [
         "Timestamp", "Packet Type", "Payload Data", "Malware Indicators", 
@@ -22,6 +16,7 @@ def clean_data(df):
     col2 = "Anomaly Score"
     df[col1] = (df[col1] - df[col1].mean()) / df[col1].std()
     df[col2] = (df[col1] - df[col1].mean()) / df[col1].std()
+    print(df[col2]) 
 
 
 def main():
